@@ -7,7 +7,7 @@ import java.util.Random;
 public class Piles
 {
    private ArrayList<Integer> piles;
-
+   private int add;
    /**
       Create a set of piles with a known (non-random) configuration for testing.
       @param pileSizes an array of numbers whose sum is 45
@@ -25,7 +25,12 @@ public class Piles
     */
    public String toString()
    {
-      . . .
+       String data = "";
+       for (int pile: piles)
+       {
+           data += pile + " ";
+        }
+       return data;
    }
 
    /**
@@ -33,6 +38,18 @@ public class Piles
    */
    public void playRound()
    {
-      . . .
+       piles.add(5+add);
+              add++;
+       for (int i = 0; i<piles.size(); i++)
+       { 
+         piles.set(i,piles.get(i) - 1);
+         if (piles.get(i).equals(0))
+         {
+             piles.remove(i);
+             i--;
+            }
+         
+        }
+       
    }
 }

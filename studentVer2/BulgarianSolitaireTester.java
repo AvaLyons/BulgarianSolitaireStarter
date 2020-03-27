@@ -1,58 +1,28 @@
-import java.util.Random;
 /**
-   Play the game of Bulgarian Solitare.
-   Count how many turns it takes to print one turn.
+   Tests the game of Bulgarian Solitaire.
 */
 public class BulgarianSolitaireTester
 {
    public static void main(String[] args)
    {
-      Piles deck = new Piles(new Random(42));
-      int turns = 0;
-      while (! deck.isDone())
-      {
-         deck.playRound();
-         turns++;
-      }
-      System.out.println(turns);
-      System.out.println("Expected: 55");
+      Piles deck = new Piles(new int[]{ 20, 5, 1, 9, 10 });
+      deck.playRound();
       System.out.println(deck);
-      System.out.println("Expected: [1, 2, 3, 4, 5, 6, 7, 9, 8]");
-      
-      deck = new Piles(new Random(11));
-      turns = 0;
-      while (! deck.isDone())
-      {
-         deck.playRound();
-         turns++;
-      }
-      System.out.println(turns);
-      System.out.println("Expected: 38");
+      System.out.println("Expected: [19, 4, 8, 9, 5]");
+      deck.playRound();
       System.out.println(deck);
-      System.out.println("Expected: [1, 2, 3, 4, 5, 6, 7, 9, 8]");
-      
-      deck = new Piles(new Random(10));
-      turns = 0;
-      while (! deck.isDone())
-      {
-         deck.playRound();
-         turns++;
-      }
-      System.out.println(turns);
-      System.out.println("Expected: 16");
+      System.out.println("Expected: [18, 3, 7, 8, 4, 5]");
+      deck.playRound();
       System.out.println(deck);
-      System.out.println("Expected: [3, 1, 2, 4, 5, 6, 7, 9, 8]");
-
-      deck = new Piles(new Random(185));
-      turns = 0;
-      while (! deck.isDone())
-      {
-         deck.playRound();
-         turns++;
-      }
-      System.out.println(turns);
-      System.out.println("Expected: 18");
+      System.out.println("Expected: [17, 2, 6, 7, 3, 4, 6]");
+      deck.playRound();
       System.out.println(deck);
-      System.out.println("Expected: [9, 1, 2, 3, 5, 4, 6, 7, 8]");
+      System.out.println("Expected: [16, 1, 5, 6, 2, 3, 5, 7]");      
+      deck.playRound();
+      System.out.println(deck);
+      System.out.println("Expected: [15, 4, 5, 1, 2, 4, 6, 8]");
+      deck.playRound();
+      System.out.println(deck);
+      System.out.println("Expected: [14, 3, 4, 1, 3, 5, 7, 8]");      
    }
 }

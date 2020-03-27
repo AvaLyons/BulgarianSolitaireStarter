@@ -1,54 +1,15 @@
 import java.util.ArrayList;
 import java.util.Random;
 /**
- * A class that plays Bulgarian Solitare.
- * Version 3: Complete the isDone method.
-*/
+ * A class that plays Bulgarian Solitare. 
+ * Version 1: Implement the playRound and toString methods.
+ */
 public class Piles
 {
-   /**
-      Checks whether the game is done.
-      @return true when the piles have size
-      1, 2, 3, 4, 5, 6, 7, 8, and 9, in some order.
-   */
-   public boolean isDone()
-   {
-      /*
-         We are done when we have some combination of the numbers
-         1 through 9 in the piles. Therefore, we can first check to
-         make sure we have exactly 9 piles so we don't waste our time.
-         We also need to take care that we have the exact numbers and
-         avoid a situation like  1 1 3 4 5 6 7 8 10  which means we
-         still aren't done.
-      */
-      . . .
-
-
-
-   }
-
    private ArrayList<Integer> piles;
-
+   private int add;
    /**
-      Sets up the game randomly with some number of piles of random
-      size. The pile sizes add up to 45.
-   */
-   public Piles(Random generator)
-   {
-      piles = new ArrayList<Integer>();
-      /* randomly divide up the deck into piles */
-      int TOTAL_SIZE = 45;  // number of cards in a deck
-      int numCards = TOTAL_SIZE;
-      while (numCards > 0)
-      {
-         int pile = generator.nextInt(numCards) + 1;
-         piles.add(pile);
-         numCards -= pile;
-      }
-   }
-
-   /**
-      Set up a pile with a known (non-random) configuration for testing.
+      Create a set of piles with a known (non-random) configuration for testing.
       @param pileSizes an array of numbers whose sum is 45
    */
    public Piles(int[] pileSizes)
@@ -64,7 +25,12 @@ public class Piles
     */
    public String toString()
    {
-      return piles.toString();
+       String data = "";
+       for (int pile: piles)
+       {
+           data += pile + " ";
+        }
+       return data;
    }
 
    /**
@@ -72,6 +38,18 @@ public class Piles
    */
    public void playRound()
    {
-	   // insert your code for ver 1
+       piles.add(5+add);
+              add++;
+       for (int i = 0; i<piles.size(); i++)
+       { 
+         piles.set(i,piles.get(i) - 1);
+         if (piles.get(i).equals(0))
+         {
+             piles.remove(i);
+             i--;
+            }
+         
+        }
+       
    }
 }
